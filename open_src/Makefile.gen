@@ -1,0 +1,68 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/ir/oniteo.com/suites/trusted_arm/branches/haspoc/hikey/extra/simple_build/Makefile.gen $
+# $Revision: 2750 $
+#
+# Relative current directory
+#
+MOUNT_DIR = loop
+SRC_DIR = src
+BUILD_DIR = build
+
+
+#
+# Structure on ISO Image  
+#
+MODULE_PACKAGE_DIR = src/module
+#
+# Current directory   
+#
+PWD = $(shell pwd)/
+
+
+# Modules to build 
+
+MODULES = plf_generic plf_lsb_x86  bios_low bios_memory bios_trust_anchor plf_bios_arm  bios_fip secure_bios spdlib bios_high bios_arm_build
+
+
+
+# Build phases for each module 
+ 
+unpack:
+	@echo "Unpack" 
+	@mkdir -p $(SRC_DIR)
+	@for mod in $(MODULES); do \
+	  ( cd   $(SRC_DIR)  && tar xzf ../$(MOUNT_DIR)/$(MODULE_PACKAGE_DIR)/$$mod/$$mod.tgz ) ;\
+	done
+
+prepare:
+	@echo "Prepare" 
+	@mkdir -p $(BUILD_DIR)
+	@for mod in $(MODULES); do \
+	  make -C $(SRC_DIR)/$$mod prepare PREFIX=$(PWD)$(BUILD_DIR) ;\
+	done
+
+compile:
+	@echo "Build" 
+	@mkdir -p $(BUILD_DIR)
+	@for mod in $(MODULES); do \
+	  make -C $(SRC_DIR)/$$mod build install PREFIX=$(PWD)$(BUILD_DIR)  ;\
+	done
+
+clean:
+	@echo "clean" 
+	@mkdir -p $(BUILD_DIR)
+	@for mod in $(MODULES); do \
+	  make -C $(SRC_DIR)/$$mod clean  PREFIX=$(PWD)$(BUILD_DIR)  ;\
+	done
+
+test:
+	make -C $(SRC_DIR)/bios_high main_test PREFIX=$(PWD)$(BUILD_DIR) 
+	make -C $(SRC_DIR)/bios_high run PREFIX=$(PWD)$(BUILD_DIR) 
+
+
+build: clean_all clean prepare compile 
+
+
+clean_all:
+	rm -rf $(BUILD_DIR) 
+
+

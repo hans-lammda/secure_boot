@@ -1,0 +1,33 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NGetOpt
+.SH DESCRIPTION
+This function parses options from the commandline. It is a platform independent version of getopt, modeled upon the getopt_long function. The values to supply are argc and argv from main() parameter list.
+If a valid option was found the function returns the option character. If all command-line options have been parsed, then the function returns -1. If next option character is not in optstring or there is a missing argument then '?' or ':' is returned.
+.SH SYNOPSIS
+.B #include <ngetopt.h>
+.sp
+.B int NGetOpt(argc, argv, shortopts, longopts, longind);
+.SH PARAMETERS
+.TP
+.B int argc
+The number of argument.
+.TP
+.B char ** argv
+The argv array of strings.
+.TP
+.B const char * shortopts
+Pointer to valid short options.
+.TP
+.B const struct option * longopts
+Pointer to valid options.
+.TP
+.B int * longind
+Pointer to index of current option.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NGetOptarg(3)
+.BR NGetOptind(3)
+.PP

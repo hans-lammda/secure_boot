@@ -1,0 +1,40 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemSet
+.SH DESCRIPTION
+Sets the first num bytes of the block of memory pointed by ptr to the specified value (interpreted as an unsigned char). bytes.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B void* NMemSet(ptr, value, count);
+.SH PARAMETERS
+.TP
+.B void * ptr
+Pointer to the memory to fill.
+.TP
+.B int value
+Value to be set.
+.TP
+.B size_t count
+Number of bytes to set.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

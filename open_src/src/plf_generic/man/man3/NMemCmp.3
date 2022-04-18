@@ -1,0 +1,40 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemCmp
+.SH DESCRIPTION
+Compares the first num bytes of the block of memory pointed by ptr1 to the first num bytes pointed by ptr2. Zero is returned if they all match, if not then the return value represents which of the two memory blocks is greater.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B int NMemCmp(ptr1, ptr2, count);
+.SH PARAMETERS
+.TP
+.B const void * ptr1
+Pointer to first memory block.
+.TP
+.B const void * ptr2
+Pointer to second memory block.
+.TP
+.B size_t count
+Number of bytes to compare.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

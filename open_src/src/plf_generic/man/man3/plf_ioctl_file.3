@@ -1,0 +1,32 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+plf_ioctl_file
+.SH DESCRIPTION
+This functions allows passing low level parameters from application level to underlying driver.
+.SH SYNOPSIS
+.B #include <file.h>
+.sp
+.B int plf_ioctl_file(in, data);
+.SH PARAMETERS
+.TP
+.B file_io in
+parameter structure
+.TP
+.B void * data
+opaque structure
+.SH RETURN VALUES
+.TP
+.B PLF_FILE_OK
+Successful operation.
+.TP
+.B PLF_FILE_ATTR_FAIL
+Unable to get file attributes.
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR plf_read_file(3)
+.BR plf_map_file(3)
+.BR plf_write_file(3)
+.BR plf_attr_file(3)
+.BR plf_cp(3)
+.PP

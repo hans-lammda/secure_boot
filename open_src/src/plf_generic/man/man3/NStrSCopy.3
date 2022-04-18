@@ -1,0 +1,40 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NStrSCopy
+.SH DESCRIPTION
+This function copies one string to another, with respect to the size of the destination string.
+If the function returns SAFESTR_ERROR_INSUFFICIENT_BUFFER the copy operation failed due to insufficient buffer space. The destination buffer contains a truncated, null-terminated version of the intended result. In situations where truncation is acceptable, this may not necessarily be seen as a failure condition.
+.SH SYNOPSIS
+.B #include <safestr.h>
+.sp
+.B int NStrSCopy(target, source, targetSize);
+.SH PARAMETERS
+.TP
+.B char * target
+The target buffer.
+.TP
+.B const char * source
+Allocated size of target buffer.
+.TP
+.B int targetSize
+The source from which to copy data.
+.SH RETURN VALUES
+.TP
+.B SAFESTR_OK
+OK.
+.TP
+.B SAFESTR_ERROR_INVALID_PARAMETER
+Invalid parameter.
+.TP
+.B SAFESTR_ERROR_INSUFFICIENT_BUFFER
+Insufficient buffer size.
+.TP
+.B SAFESTR_ERROR_UNKNOWN
+Unknown error.
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NStrVSPrintf(3)
+.BR NStrSPrintf(3)
+.BR NStrSCat(3)
+.PP

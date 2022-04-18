@@ -1,0 +1,37 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemDup
+.SH DESCRIPTION
+This function duplicates a memory area.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B void* NMemDup(source, size);
+.SH PARAMETERS
+.TP
+.B void * source
+Pointer to memory area to clone.
+.TP
+.B size_t size
+Size of the memory area.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

@@ -1,0 +1,34 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemAddFreeStat
+.SH DESCRIPTION
+If MEM_DBG is defined this function will search the memory statistic structure for a matching malloc done earlier. If found it will flag the address as unallocated, otherwise it will return an error message.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B void NMemAddFreeStat(ptr);
+.SH PARAMETERS
+.TP
+.B void * ptr
+pointer to memory that just had been freed
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemPrintStats(3)
+.PP

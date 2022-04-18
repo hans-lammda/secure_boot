@@ -1,0 +1,41 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+plf_map_file
+.SH DESCRIPTION
+This functions maps a file to a virtual address. Use this for large files , but be aware that the buffer share the same data as the actual file. Useful for verification of signature etc.
+.SH SYNOPSIS
+.B #include <file.h>
+.sp
+.B int plf_map_file(in);
+.SH PARAMETERS
+.TP
+.B file_io in
+parameter structure
+.SH RETURN VALUES
+.TP
+.B PLF_FILE_OK
+Successful operation.
+.TP
+.B PLF_FILE_BAD_PATH
+file path is empty
+.TP
+.B PLF_FILE_ATTR_FAIL
+Unable to get file attributes.
+.TP
+.B PLF_FILE_ERR_OPEN
+Unable to open file.
+.TP
+.B PLF_FILE_ERR_MAP
+Error when mapping file.
+.TP
+.B PLF_FILE_BAD_READ
+Error occured while reading file.
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR plf_read_file(3)
+.BR plf_write_file(3)
+.BR plf_attr_file(3)
+.BR plf_ioctl_file(3)
+.BR plf_cp(3)
+.PP

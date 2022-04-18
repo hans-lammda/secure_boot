@@ -1,0 +1,48 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/nanodev/packages/bios_trust_anchor/trunk/bios_trust_anchor/Makefile.arm $
+# $Revision: 27139 $
+
+#########################
+#
+## Copyright Oniteo 2007-2008 
+#
+##########################
+
+include ../../import.mk
+
+PREFIX ?= /home/hans/sb/build
+
+PACKAGE_ALIAS = bios_trust_anchor
+
+
+CFLAGS  += $(CROSS_COMPILER_CFLAGS)
+CFLAGS  += -nostdinc
+CFLAGS  += -fno-stack-protector  -ffreestanding
+CFLAGS  += -DPLF_SO_EXTENSION=\"$(PLF_SO_EXTENSION)\"
+CFLAGS  += -I$(PREFIX)/bios/include
+CFLAGS  += -I$(PREFIX)/include
+CFLAGS  += -Wall
+
+AS_FLAGS =   -Wall -g -Wa,--gdwarf-2 -nostdinc -ffreestanding -Wa,--fatal-warnings
+
+%o: %c
+	$(CC) $(CFLAGS)  -E $< -o $@.preproc
+	$(CC) $(CFLAGS)  -c $< -o $@
+
+
+%o: %S
+	$(CC)  $(AS_FLAGS) -c $< -o $@
+
+OBJECTS = trust.o
+
+
+build: $(OBJECTS)
+
+install:
+	for f in *.o ; do  cp -f $$f $(PREFIX)/bios/obj/$(PACKAGE_ALIAS).$$f ; done	
+
+
+clean: 
+	rm -f *.o 
+
+prepare:
+

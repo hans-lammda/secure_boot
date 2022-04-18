@@ -1,0 +1,26 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NDirRemove
+.SH DESCRIPTION
+This function removes a directory.
+.SH SYNOPSIS
+.B #include <dir.h>
+.sp
+.B int NDirRemove(dirname, recursive);
+.SH PARAMETERS
+.TP
+.B const char * dirname
+Name of the directory to remove.
+.TP
+.B int recursive
+Pass non-zero to perform a recursive removal\
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NDirOpen(3)
+.BR NDirRead(3)
+.BR NDirClose(3)
+.BR NDirResolveLink(3)
+.BR NBaseName(3)
+.PP

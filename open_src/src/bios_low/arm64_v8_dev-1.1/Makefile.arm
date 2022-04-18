@@ -1,0 +1,246 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/nanodev/packages/bios_low/branches/haspoc/arm64_v8_sb/bios_low/arm64_v8_dev-1.1/Makefile.arm $ 
+# $Revision: 27134 $
+
+include ../../../import.mk
+
+PACKAGE_ALIAS ?= bios_low
+
+
+
+#
+# Extracted C-flags from Arm Trusted Firmware
+#
+DEBUG_LEVEL ?=  0
+
+
+SUITE_BUILD_ID ?= "Untracked"
+
+
+CFLAGS += -g -nostdinc -ffreestanding -Wall  -Wmissing-include-dirs -mgeneral-regs-only -mstrict-align -std=c99
+CFLAGS += -c -Os -DPLAT_TSP_LOCATION_ID=PLAT_TRUSTED_DRAM_ID -DCONSOLE_BASE=0xF8015000 -DCRASH_CONSOLE_BASE=0xF8015000
+CFLAGS += -DSKIP_A57_L1_FLUSH_PWR_DWN=0 -DERRATA_A57_806969=0 -DERRATA_A57_813420=0 -DIMF_READ_INTERRUPT_ID=0
+CFLAGS += -DCRASH_REPORTING=1 -DDEBUG=1 -DNS_TIMER_SWITCH=0 -DRESET_TO_BL31=0 -DCTX_INCLUDE_FPREGS=0
+CFLAGS += -DARM_GIC_ARCH=2 -DASM_ASSERTION=0 -DLOG_LEVEL=40 -DUSE_COHERENT_MEM=1 -DTRUSTED_BOARD_BOOT=0
+CFLAGS += -ffunction-sections -fdata-sections -fno-delete-null-pointer-checks -pedantic -DIMAGE_BL1 -c
+
+CFLAGS += -I$(PREFIX)/bios/include -I$(PREFIX)/include
+
+CFLAGS += -Iinclude/bl31 -Iinclude/common -Iinclude/drivers -Iinclude/drivers/arm
+CFLAGS += -Iinclude/drivers/io -Iinclude/lib -Iinclude/lib/aarch64 -Iinclude/lib/cpus/aarch64
+CFLAGS += -Iinclude/plat/common -Iinclude/stdlib -Iinclude/stdlib/sys -Iplat/hikey/include
+
+CFLAGS +=  -DSUITE_BUILD_ID=\"$(SUITE_BUILD_ID)\"
+CFLAGS +=  -DDEBUG_LEVEL=$(DEBUG_LEVEL)
+
+
+
+
+#
+# Extracted Assembler-flags 
+#
+
+
+AS_FLAGS =   -g -Wa,--gdwarf-2 -nostdinc -ffreestanding -Wa,--fatal-warnings 
+AS_FLAGS +=  -Wmissing-include-dirs -mgeneral-regs-only -D__ASSEMBLY__
+AS_FLAGS +=  -DPLAT_TSP_LOCATION_ID=PLAT_TRUSTED_DRAM_ID -DCONSOLE_BASE=0xF8015000
+AS_FLAGS +=  -DCRASH_CONSOLE_BASE=0xF8015000 -DSKIP_A57_L1_FLUSH_PWR_DWN=0
+AS_FLAGS +=  -DERRATA_A57_806969=0 -DERRATA_A57_813420=0 -DIMF_READ_INTERRUPT_ID=0
+AS_FLAGS +=  -DCRASH_REPORTING=1 -DDEBUG=1 -DNS_TIMER_SWITCH=0 -DRESET_TO_BL31=0
+AS_FLAGS +=  -DCTX_INCLUDE_FPREGS=0 -DARM_GIC_ARCH=2 -DASM_ASSERTION=0 -DLOG_LEVEL=40 
+AS_FLAGS +=  -DUSE_COHERENT_MEM=1 -DTRUSTED_BOARD_BOOT=0 -DIMAGE_BL1
+
+AS_FLAGS +=  -Iinclude/common -Iinclude/drivers -Iinclude/drivers/arm -Iinclude/drivers/io
+AS_FLAGS +=  -Iinclude/lib -Iinclude/lib/aarch64 -Iinclude/lib/cpus/aarch64 -Iinclude/plat/common
+AS_FLAGS +=  -Iinclude/stdlib -Iinclude/stdlib/sys -Iplat/hikey/include/ -Iinclude/bl31 -Iinclude/bl31/services 
+
+NOLIBS =  -nostartfiles -nodefaultlibs -nostdlib
+LDFLAGS = $(NOLIBS) -static
+
+obj_dir: 
+	mkdir -p obj
+
+cci400.o:
+	$(CC)  $(CFLAGS) -c drivers/arm/cci400/cci400.c -o obj/cci400.o
+
+dw_mmc.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/drivers/dw_mmc.c -o obj/dw_mmc.o
+
+hisi_mcu.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/drivers/hisi_mcu.c -o obj/hisi_mcu.o
+
+hisi_dvfs.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/drivers/hisi_dvfs.c -o obj/hisi_dvfs.o
+
+hi6553.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/drivers/hi6553.c -o obj/hi6553.o
+
+gpio.o:
+	$(CC)  $(CFLAGS) -c drivers/arm/gpio/gpio.c -o obj/gpio.o
+
+io_block.o:
+	$(CC)  $(CFLAGS) -c drivers/io/io_block.c -o obj/io_block.o
+
+sp804_timer.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/drivers/sp804_timer.c -o obj/sp804_timer.o
+
+plat_gic.o:
+	$(CC)  $(CFLAGS) -c plat/common/plat_gic.c -o obj/plat_gic.o
+
+partitions.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/partitions.c -o obj/partitions.o
+
+bl1_plat_setup.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/bl1_plat_setup.c -o obj/bl1_plat_setup.o
+
+bl2_plat_setup.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/bl2_plat_setup.c -o obj/bl2_plat_setup.o
+
+bl1_fvp_setup.o:
+	$(CC)  $(CFLAGS) -c plat/fvp/bl1_fvp_setup.c -o obj/bl1_fvp_setup.o
+
+fvp_common.o:
+	$(CC)  $(CFLAGS) -c plat/fvp/aarch64/fvp_common.c -o obj/fvp_common.o
+
+bl1_main.o:
+	$(CC)  $(CFLAGS) -c bl1/bl1_main.c -o obj/bl1_main.o
+
+plat_io_storage.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/plat_io_storage.c -o obj/plat_io_storage.o
+
+pll.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/pll.c -o obj/pll.o
+
+hikey_common.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/aarch64/hikey_common.c -o obj/hikey_common.o
+
+usb.o:
+	$(CC)  $(CFLAGS) -c plat/hikey/usb.c -o obj/usb.o
+
+bl1_arch_setup.o:
+	$(CC)  $(CFLAGS) -c bl1/aarch64/bl1_arch_setup.c -o obj/bl1_arch_setup.o
+
+bl_common.o:
+	$(CC)  $(CFLAGS) -c common/bl_common.c -o obj/bl_common.o
+
+tf_printf.o:
+	$(CC)  $(CFLAGS) -c common/tf_printf.c -o obj/tf_printf.o
+
+xlat_helpers.o:
+	$(CC)  $(CFLAGS) -c lib/aarch64/xlat_helpers.c -o obj/xlat_helpers.o
+
+xlat_tables.o:
+	$(CC)  $(CFLAGS) -c lib/aarch64/xlat_tables.c -o obj/xlat_tables.o
+
+std.o:
+	$(CC)  $(CFLAGS) -c lib/stdlib/std.c -o obj/std.o
+
+io_fip.o:
+	$(CC)  $(CFLAGS) -c drivers/io/io_fip.c -o obj/io_fip.o
+
+io_memmap.o:
+	$(CC)  $(CFLAGS) -c drivers/io/io_memmap.c -o obj/io_memmap.o
+
+io_semihosting.o:
+	$(CC)  $(CFLAGS) -c drivers/io/io_semihosting.c -o obj/io_semihosting.o
+
+semihosting.o:
+	$(CC)  $(CFLAGS) -c lib/semihosting/semihosting.c -o obj/semihosting.o
+
+io_storage.o:
+	$(CC)  $(CFLAGS) -c drivers/io/io_storage.c -o obj/io_storage.o
+
+plat_common.o:
+	$(CC)  $(CFLAGS) -c plat/common/aarch64/plat_common.c -o obj/plat_common.o
+
+fvp_io_storage.o:
+	$(CC)  $(CFLAGS) -c plat/fvp/fvp_io_storage.c -o obj/fvp_io_storage.o
+
+# Assembler 
+aem_generic.o:
+	$(CC)  $(AS_FLAGS) -c lib/cpus/aarch64/aem_generic.S -o obj/aem_generic.o
+
+bl1_entrypoint.o:
+	$(CC)  $(AS_FLAGS) -c bl1/aarch64/bl1_entrypoint.S -o obj/bl1_entrypoint.o
+
+cortex_a53.o:
+	$(CC)  $(AS_FLAGS) -c lib/cpus/aarch64/cortex_a53.S -o obj/cortex_a53.o
+
+cortex_a57.o:
+	$(CC)  $(AS_FLAGS) -c lib/cpus/aarch64/cortex_a57.S -o obj/cortex_a57.o
+
+platform_up_stack.o:
+	$(CC)  $(AS_FLAGS) -c plat/common/aarch64/platform_up_stack.S -o obj/platform_up_stack.o
+
+fvp_helpers.o:
+	$(CC)  $(AS_FLAGS) -c plat/fvp/aarch64/fvp_helpers.S -o obj/fvp_helpers.o
+
+bl1_exceptions.o:
+	$(CC)  $(AS_FLAGS) -c bl1/aarch64/bl1_exceptions.S -o obj/bl1_exceptions.o
+
+cpu_helpers.o:
+	$(CC)  $(AS_FLAGS) -c lib/cpus/aarch64/cpu_helpers.S -o obj/cpu_helpers.o
+
+debug.o:
+	$(CC)  $(AS_FLAGS) -c common/aarch64/debug.S -o obj/debug.o
+
+cache_helpers.o:
+	$(CC)  $(AS_FLAGS) -c lib/aarch64/cache_helpers.S -o obj/cache_helpers.o
+
+misc_helpers.o:
+	$(CC)  $(AS_FLAGS) -c lib/aarch64/misc_helpers.S -o obj/misc_helpers.o
+
+platform_helpers.o:
+	$(CC)  $(AS_FLAGS) -c plat/common/aarch64/platform_helpers.S -o obj/platform_helpers.o
+
+bl1_plat_helpers.o: 
+	$(CC)  $(AS_FLAGS) -c plat/hikey/aarch64/bl1_plat_helpers.S -o obj/bl1_plat_helpers.o
+
+plat_helpers.o: 
+	$(CC)  $(AS_FLAGS) -c plat/hikey/aarch64/plat_helpers.S -o obj/plat_helpers.o
+
+pl011_console.o:
+	$(CC)  $(AS_FLAGS) -c drivers/arm/pl011/pl011_console.S -o obj/pl011_console.o
+
+semihosting_call.o:
+	$(CC)  $(AS_FLAGS) -c lib/semihosting/aarch64/semihosting_call.S -o obj/semihosting_call.o
+
+OBJECTS =  \
+           cci400.o \
+           gpio.o \
+           bl1_arch_setup.o \
+	   cortex_a53.o \
+	   bl1_entrypoint.o \
+	   bl1_exceptions.o \
+	   cpu_helpers.o \
+	   cache_helpers.o \
+	   misc_helpers.o \
+	   platform_helpers.o \
+	   pll.o \
+           plat_gic.o \
+           hikey_common.o \
+           bl1_plat_setup.o \
+           dw_mmc.o  \
+           hi6553.o \
+           sp804_timer.o \
+           bl1_plat_helpers.o \
+           plat_helpers.o \
+	   hisi_mcu.o \
+
+BL2_OBJECTS = hisi_dvfs.o bl2_plat_setup.o
+
+OBJECTS += $(BL2_OBJECTS) 
+
+
+build:  obj_dir $(OBJECTS) 
+
+clean:	
+	rm -rf obj 
+
+prepare:
+
+BINARIES = $(shell ls obj | grep .o)
+
+install: 
+	mkdir -p $(PREFIX)/bios/obj
+	for f in $(BINARIES) ; do  cp -f obj/$$f $(PREFIX)/bios/obj/$(PACKAGE_ALIAS).$$f ;  done
+

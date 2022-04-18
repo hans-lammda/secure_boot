@@ -1,0 +1,69 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/nanodev/packages/bios_arm_build/branches/haspoc/hikey/bios_arm_build/Makefile.arm $ 
+# $Revision: 27148 $
+
+include ../../import.mk 
+
+
+NOLIBS =  -nostartfiles -nodefaultlibs -nostdlib
+LDFLAGS = $(NOLIBS) -static
+
+
+
+
+LINKER_SCRIPT =  bios.ld
+
+LDSCRIPT_SYMBOLS = --defsym SRAM_SIZE=$(SRAM_SIZE) --defsym SDRAMBASE=$(SDRAMBASE) --defsym SRAMBASE=$(SRAMBASE) \
+		   --defsym STACK_SIZE=$(STACK_SIZE)  --defsym SRAM_HEAP_SIZE=$(SRAM_HEAP_SIZE) \
+		   --defsym ROMBASE=$(ROMBASE) --defsym SECBOOT_SRAM_BASE=$(SECBOOT_SRAM_BASE) --defsym BL31_START=0xf9858000 --defsym BL31_SIZE=0x20000
+
+SRAMBASE    ?= 0xf9800000
+SECBOOT_SRAM_BASE ?= 0xf9811000 
+SRAM_SIZE   ?= 4194304
+
+SDRAMBASE        = 0x00000000
+
+
+
+# ROMBASE  ( XG2RAM0_BASE + BL1_XG2RAM0_OFFSET ) 
+ROMBASE ?= 0xF9801000 
+# ROM_SIZE  (  BL1_RO_LIMIT - BL1_RO_BASE ) 
+ROM_SIZE ?= 69632  
+
+SRAM_SHARED_SIZE ?= 4096
+
+# Secure boot  (  BL1_RW_LIMIT - BL1_RW_BASE ) 
+SECBOOT_SIZE   ?= 688128
+
+STACK_SIZE     ?= 1500
+SRAM_HEAP_SIZE ?= 262144
+
+
+link:
+
+	@$(LD) $(LDFLAGS)  $(LDSCRIPT_SYMBOLS) -T $(LINKER_SCRIPT) $(PREFIX)/bios/obj/*.o \
+		-Map=bios.map \
+		--gc-sections \
+		--print-map > bios_dbg.map \
+ 		 $(CROSS_COMPILER_LDFLAGS) \
+                -o  bl1.elf 
+
+
+
+bl1.bin: bl1.elf
+	$(CROSS_COMPILE)objcopy -R .stack  -R .heap_sram -R .bss -R .leftover -O binary bl1.elf bl1.bin
+
+
+
+	
+
+build: link bl1.bin
+
+clean:	
+	rm -rf  bios.map  bl1.bin  bl1.elf   
+
+prepare:
+
+install: 
+	
+
+

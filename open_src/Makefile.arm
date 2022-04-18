@@ -1,0 +1,74 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/ir/oniteo.com/suites/trusted_arm/branches/haspoc/hikey/extra/simple_build/Makefile.arm $
+# $Revision: 2741 $
+#
+
+#
+# Relative current directory
+#
+MOUNT_DIR = loop
+SRC_DIR = src
+BUILD_DIR = build
+
+
+#
+# Structure on ISO Image  
+#
+MODULE_PACKAGE_DIR = src/module
+#
+# Current directory   
+#
+PWD = $(shell pwd)/
+
+include import.mk 
+
+
+#
+# Unpack all modules  
+# 
+
+
+# Modules to build 
+
+MODULES = linaro plf_generic  bios_low bios_memory bios_trust_anchor plf_bios_arm  bios_fip secure_bios spdlib bios_high bios_output bios_arm_build
+
+
+# Build phases for each module 
+ 
+unpack:
+	@echo "Unpack" 
+	@mkdir -p $(SRC_DIR)
+	@for mod in $(MODULES); do \
+	  ( cd   $(SRC_DIR)  && tar xzf ../$(MOUNT_DIR)/$(MODULE_PACKAGE_DIR)/$$mod/$$mod.tgz ) ;\
+	done
+
+prepare:
+	@echo "Prepare" 
+	@mkdir -p $(BUILD_DIR)
+	@for mod in $(MODULES); do \
+	  make -C $(SRC_DIR)/$$mod prepare PREFIX=$(PWD)$(BUILD_DIR) ;\
+	done
+
+
+compile:
+	@echo "Build" 
+	@mkdir -p $(BUILD_DIR)
+	@for mod in $(MODULES); do \
+	  make -C $(SRC_DIR)/$$mod -f Makefile.arm build install PREFIX=$(PWD)$(BUILD_DIR) CC=$(CC) TOP_CFLAGS="$(CROSS_COMPILER_CFLAGS)"  ;\
+	done
+
+clean:
+	@echo "Clean" 
+	@mkdir -p $(BUILD_DIR)
+	@for mod in $(MODULES); do \
+	  make -C $(SRC_DIR)/$$mod -f Makefile.arm clean PREFIX=$(PWD)$(BUILD_DIR) CC=$(CC) TOP_CFLAGS="$(CROSS_COMPILER_CFLAGS)"  ;\
+	done
+
+
+
+build: clean_all clean prepare compile
+
+
+clean_all:
+	rm -rf $(BUILD_DIR) 
+
+

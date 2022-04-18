@@ -1,0 +1,29 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NThreadCreate
+.SH DESCRIPTION
+This function creates a new thread. The parameters to contol a thread depends on implemenentation.
+.SH SYNOPSIS
+.B #include <plf_proc.h>
+.sp
+.B int NThreadCreate(thread, attr, start_routine, arg);
+.SH PARAMETERS
+.TP
+.B void * thread
+Handle to new thread.
+.TP
+.B const void * attr
+Parameters to contol thread.
+.TP
+.B void *(*)() start_routine
+Function to execute in new thread.
+.TP
+.B void * arg
+Pointer to single value or struct containing arguments.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NThreadDetach(3)
+.BR NThreadExit(3)
+.PP

@@ -1,0 +1,66 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/nanodev/packages/bios_memory/branches/haspoc/hikey/bios_memory/Makefile.arm $
+# $Revision: 27137 $
+
+#########################
+#
+## Copyright Oniteo 2007-2008 
+#
+##########################
+
+include ../../import.mk
+
+PREFIX ?= /home/hans/sb/build
+
+PACKAGE_ALIAS = bios_memory
+
+
+CFLAGS  += $(CROSS_COMPILER_CFLAGS)
+CFLAGS  += -nostdinc
+CFLAGS  += -fno-stack-protector  -ffreestanding
+CFLAGS  += -DPLF_SO_EXTENSION=\"$(PLF_SO_EXTENSION)\"
+CFLAGS  += -I$(PREFIX)/bios/include
+CFLAGS  += -I$(PREFIX)/include
+CFLAGS  += -Wall
+
+AS_FLAGS =   -Wall -g -Wa,--gdwarf-2 -nostdinc -ffreestanding -Wa,--fatal-warnings
+
+%o: %c
+	$(CC) $(CFLAGS)  -E $< -o $@.preproc
+	$(CC) $(CFLAGS)  -c $< -o $@
+
+
+h_mmu.o:
+	$(CC)  $(CFLAGS) -c mmu/h_mmu.c -o obj/h_mmu.o
+
+sdram_setup.o:
+	$(CC)  $(CFLAGS) -c config/sdram_setup.c -o obj/sdram_setup.o
+
+disable_cache.o:
+	$(CC)  $(AS_FLAGS) -c cache/disable_cache.S -o obj/disable_cache.o
+
+cache_helpers.o:
+	$(CC)  $(AS_FLAGS) -c cache/cache_helpers.S -o obj/cache_helpers.o
+
+
+OBJECTS = h_mmu.o sdram_setup.o  cache_helpers.o 
+
+obj_dir:
+	mkdir -p obj
+
+
+build: obj_dir $(OBJECTS)
+
+
+BINARIES = $(shell ls obj | grep .o)
+install:
+	mkdir -p $(PREFIX)/bios/obj
+	for f in  $(BINARIES) ; do  cp -f obj/$$f $(PREFIX)/bios/obj/$(PACKAGE_ALIAS).$$f ; done	
+
+
+clean: 
+	rm -rf obj 
+
+prepare:
+	mkdir -p       $(DESTDIR)$(PREFIX)/include
+	cp bios_low.h       $(DESTDIR)$(PREFIX)/include
+

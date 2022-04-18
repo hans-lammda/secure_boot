@@ -1,0 +1,23 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NDirOpen
+.SH DESCRIPTION
+This function is a Windows-compatible version of opendir.
+.SH SYNOPSIS
+.B #include <dir.h>
+.sp
+.B HDIRECTORY NDirOpen(pszDirName);
+.SH PARAMETERS
+.TP
+.B const char * pszDirName
+Name of the directory to open.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NDirRead(3)
+.BR NDirClose(3)
+.BR NDirResolveLink(3)
+.BR NDirRemove(3)
+.BR NBaseName(3)
+.PP

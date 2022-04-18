@@ -1,0 +1,40 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemMove
+.SH DESCRIPTION
+Copies the values of num bytes from source to destination. Copying takes place as if an intermediate buffer was used, allowing the destination and source to overlap. The result is a binary copy of the data. The function does not check for any terminating null character in source. It always copies exactly num bytes. To avoid overflows, the size of the arrays pointed by both the destination and source parameters, shall be at least num bytes.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B void* NMemMove(dest, src, count);
+.SH PARAMETERS
+.TP
+.B void * dest
+Pointer to destination buffer.
+.TP
+.B void * src
+Pointer to source buffer.
+.TP
+.B size_t count
+Number of bytes to copy.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

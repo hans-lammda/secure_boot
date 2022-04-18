@@ -1,0 +1,41 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+plf_attr_file
+.SH DESCRIPTION
+This functions collects parameters from the filesystem such as permission , size etc.
+.SH SYNOPSIS
+.B #include <file.h>
+.sp
+.B int plf_attr_file(in);
+.SH PARAMETERS
+.TP
+.B file_io in
+parameter structure
+.SH RETURN VALUES
+.TP
+.B PLF_FILE_OK
+Successful operation.
+.TP
+.B PLF_FILE_ATTR_FAIL
+Unable to get file attributes.
+.TP
+.B PLF_FILE_EMPTY_FILE
+No brief for PLF_FILE_EMPTY_FILE
+.TP
+.B PLF_FILE_DIGEST_FAILED
+No brief for PLF_FILE_DIGEST_FAILED
+.TP
+.B PLF_FILE_BAD_FILE_TYPE
+Attempt to calculate digest on wrong file type.
+.TP
+.B PLF_FILE_BAD_PATH
+file path is empty
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR plf_read_file(3)
+.BR plf_map_file(3)
+.BR plf_write_file(3)
+.BR plf_ioctl_file(3)
+.BR plf_cp(3)
+.PP

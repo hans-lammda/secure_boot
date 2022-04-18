@@ -1,0 +1,35 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+plf_write_file
+.SH DESCRIPTION
+This function writes buffer to a file. It creates the file if not existent.
+.SH SYNOPSIS
+.B #include <file.h>
+.sp
+.B int plf_write_file(in);
+.SH PARAMETERS
+.TP
+.B file_io in
+parameter structure
+.SH RETURN VALUES
+.TP
+.B PLF_FILE_OK
+Successful operation.
+.TP
+.B PLF_FILE_BAD_PATH
+file path is empty
+.TP
+.B PLF_FILE_ERR_OPEN
+Unable to open file.
+.TP
+.B PLF_FILE_ERR_WRITE
+Error while write buffer to file.
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR plf_read_file(3)
+.BR plf_map_file(3)
+.BR plf_attr_file(3)
+.BR plf_ioctl_file(3)
+.BR plf_cp(3)
+.PP

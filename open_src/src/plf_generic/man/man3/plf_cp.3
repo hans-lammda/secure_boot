@@ -1,0 +1,41 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+plf_cp
+.SH DESCRIPTION
+This function works as the Posix cp command cp <fromfile> <tofile>.
+.SH SYNOPSIS
+.B #include <file.h>
+.sp
+.B int plf_cp(source, target);
+.SH PARAMETERS
+.TP
+.B const char * source
+Source file.
+.TP
+.B const char * target
+Target file.
+.SH RETURN VALUES
+.TP
+.B PLF_OK
+Successfull operation.
+.TP
+.B PLF_NO_SOURCE
+Unable to open source file.
+.TP
+.B PLF_NO_TARGET
+Unable to open target file.
+.TP
+.B PLF_WRITE_FAILED
+Error during file write.
+.TP
+.B PLF_FILE_CLOSE_ERROR
+Error during file close.
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR plf_read_file(3)
+.BR plf_map_file(3)
+.BR plf_write_file(3)
+.BR plf_attr_file(3)
+.BR plf_ioctl_file(3)
+.PP

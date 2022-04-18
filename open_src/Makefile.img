@@ -1,0 +1,4 @@
+create:
+	@size=`tools/bin/signer  --rootpk  root_pk/pub.pem --priv root_pk/priv.pem  --out hsbf/hsbf_image --config hsbf/hikey2.ini` ; \
+	tools/bin/signer  --rootpk  root_pk/pub.pem --priv root_pk/priv.pem   --out hsbf/hsbf_image  --config hsbf/hikey2.ini --size $$size --verbose
+

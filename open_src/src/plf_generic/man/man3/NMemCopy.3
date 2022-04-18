@@ -1,0 +1,40 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemCopy
+.SH DESCRIPTION
+This functon creates a copy of a memory buffer.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B void* NMemCopy(dest, src, count);
+.SH PARAMETERS
+.TP
+.B void * dest
+Pointer to destination buffer.
+.TP
+.B void * src
+Pointer to source buffer.
+.TP
+.B size_t count
+Number of bytes to copy.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

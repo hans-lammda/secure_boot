@@ -1,0 +1,27 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NDldLoadSymbol
+.SH DESCRIPTION
+Loads a symbol from a dynamically loaded library.
+The types HMODULE and FARPROC are described in local.h.
+.SH SYNOPSIS
+.B #include <dynload.h>
+.sp
+.B FARPROC NDldLoadSymbol(hLib, pszName);
+.SH PARAMETERS
+.TP
+.B HMODULE hLib
+Handle to dynamic library.
+.TP
+.B const char * pszName
+Name of symbol to load.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NDldLoadLibrary(3)
+.BR NDldUnloadLibrary(3)
+.BR NDldLoadFunc(3)
+.BR NDldGetError(3)
+.BR NDldGetExtension(3)
+.PP

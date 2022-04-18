@@ -1,0 +1,29 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NDirResolveLink
+.SH DESCRIPTION
+This function resolves a link and returns the actual path to the file.
+.SH SYNOPSIS
+.B #include <dir.h>
+.sp
+.B int NDirResolveLink(linkfile, targetfile, size);
+.SH PARAMETERS
+.TP
+.B const char * linkfile
+The link file to resolve.
+.TP
+.B char * targetfile
+Buffer to receive the resolved file.
+.TP
+.B int size
+Size of target buffer.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NDirOpen(3)
+.BR NDirRead(3)
+.BR NDirClose(3)
+.BR NDirRemove(3)
+.BR NBaseName(3)
+.PP

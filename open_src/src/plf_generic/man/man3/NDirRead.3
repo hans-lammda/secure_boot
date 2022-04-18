@@ -1,0 +1,26 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NDirRead
+.SH DESCRIPTION
+Windows-compatible version of readdir.
+.SH SYNOPSIS
+.B #include <dir.h>
+.sp
+.B struct directory_entry* NDirRead(d, e);
+.SH PARAMETERS
+.TP
+.B HDIRECTORY d
+Directory pointer.
+.TP
+.B struct directory_entry * e
+Directory entry structure.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NDirOpen(3)
+.BR NDirClose(3)
+.BR NDirResolveLink(3)
+.BR NDirRemove(3)
+.BR NBaseName(3)
+.PP

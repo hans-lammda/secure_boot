@@ -1,0 +1,34 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemAddMallocStat
+.SH DESCRIPTION
+If MEM_DBG is defined this function will save the address to the allocated memory to the statistic structure and flag it as allocated.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B void NMemAddMallocStat(ptr);
+.SH PARAMETERS
+.TP
+.B void * ptr
+pointer to memory that just have been allocated
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

@@ -1,0 +1,46 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemPool
+.SH DESCRIPTION
+When memory management is used in realtime applications malloc and free often operates on a predefined memory area that is managed very efficient and fast.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B int NMemPool(start, size, test);
+.SH PARAMETERS
+.TP
+.B char * start
+First address of memory region
+.TP
+.B size_t size
+in bytes of memory regions
+.TP
+.B int test
+enabled if true
+.SH RETURN VALUES
+.TP
+.B 1
+No brief for 1
+.TP
+.B 0
+No brief for 0
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NMemWriteable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

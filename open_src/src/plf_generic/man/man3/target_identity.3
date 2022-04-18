@@ -1,0 +1,31 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+target_identity
+.SH DESCRIPTION
+Returns the operational identity of target. The caller is responsible for providing memory. The returned char pointer is a NULL terminated string. If memory assigned for the result is to short, the function will return MEMORY_FAIL
+.SH SYNOPSIS
+.B #include <system.h>
+.sp
+.B int target_identity(id_string, length);
+.SH PARAMETERS
+.TP
+.B char * id_string
+address of identity
+.TP
+.B int length
+length of identity
+.SH RETURN VALUES
+.TP
+.B SYSTEM_OK
+Successfull operation.
+.TP
+.B SYSTEM_FAIL
+Problem.
+.TP
+.B MEMORY_FAIL
+Memory problem.
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR target_reboot(3)
+.PP

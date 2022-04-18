@@ -1,0 +1,37 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NMemWriteable
+.SH DESCRIPTION
+This functions checks if the specified memory is writeable. This function works best on Windows. On other platforms, it just checks if the buffer is NULL or not.
+.SH SYNOPSIS
+.B #include <memory.h>
+.sp
+.B int NMemWriteable(pMemBlk, blkSize);
+.SH PARAMETERS
+.TP
+.B void * pMemBlk
+Buffer to check for write access.
+.TP
+.B size_t blkSize
+The size of the buffer.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NMemPool(3)
+.BR NMemAlloc(3)
+.BR NMemAlloc_align(3)
+.BR NMemRealloc(3)
+.BR NMemFree(3)
+.BR NMemFree_align(3)
+.BR NMemCopy(3)
+.BR NMemMove(3)
+.BR NMemSet(3)
+.BR NMemCmp(3)
+.BR NMemReadable(3)
+.BR NStrDup(3)
+.BR NMemDup(3)
+.BR NMemAddMallocStat(3)
+.BR NMemAddFreeStat(3)
+.BR NMemPrintStats(3)
+.PP

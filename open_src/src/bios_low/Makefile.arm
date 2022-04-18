@@ -1,0 +1,26 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/nanodev/packages/bios_low/branches/haspoc/arm64_v8_sb/bios_low/Makefile.arm $
+# $Revision: 27140 $
+
+#########################
+#
+## Copyright Oniteo 2007-2008 
+#
+##########################
+
+
+PREFIX ?= /home/hans/sb/build
+
+
+build: 
+	make -C arm64_v8_dev-1.1 -f Makefile.arm  build 
+
+install:
+	make -C arm64_v8_dev-1.1 -f Makefile.arm  install
+
+clean: 
+	make -C arm64_v8_dev-1.1 -f Makefile.arm  clean 
+
+prepare:
+	mkdir -p       $(DESTDIR)$(PREFIX)/include
+	cp bios_low.h       $(DESTDIR)$(PREFIX)/include
+

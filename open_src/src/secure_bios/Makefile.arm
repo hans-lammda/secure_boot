@@ -1,0 +1,56 @@
+# $HeadURL: https://cm-ext.dev.oniteo.com/svn/nanodev/packages/secure_bios/branches/haspoc/hikey/secure_bios/pki/Makefile.arm $
+# $Revision: 27136 $
+
+#########################
+#
+## Copyright Oniteo 2007-2008 
+#
+##########################
+
+include ../../import.mk
+
+PREFIX ?= /home/hans/sb/build
+
+PACKAGE_ALIAS = secure_bios
+
+
+CFLAGS  += $(CROSS_COMPILER_CFLAGS)
+CFLAGS  += -nostdinc
+CFLAGS  += -fno-stack-protector  -ffreestanding
+CFLAGS  += -DPLF_SO_EXTENSION=\"$(PLF_SO_EXTENSION)\"
+CFLAGS  += -I$(PREFIX)/bios/include
+CFLAGS  += -I$(PREFIX)/include
+CFLAGS  += -Wall
+
+AS_FLAGS =   -Wall -g -Wa,--gdwarf-2 -nostdinc -ffreestanding -Wa,--fatal-warnings
+AS_FLAGS  = $(CROSS_COMPILER_CFLAGS)
+AS_FLAGS  +=  -I$(CROSS_COMP_DIR)/include
+AS_FLAGS  += $(COMMON_FLAGS)
+AS_FLAGS  +=  -mcpu=cortex-a53+crypto
+
+
+%o: %c
+	$(CC) $(CFLAGS)  -E $< -o $@.preproc
+	$(CC) $(CFLAGS)  -c $< -o $@
+
+
+%o: %S
+	$(CC)  $(AS_FLAGS) -c $< -o $@
+
+#OBJECTS =   rsa_ver.o bignum.o rsa_math.o  sha256_core.o sha256_opt.o
+OBJECTS =   rsa_ver.o bignum.o rsa_math.o  sha2.o
+
+
+build: $(OBJECTS)
+
+install:
+	for f in *.o ; do  cp -f $$f $(PREFIX)/bios/obj/$(PACKAGE_ALIAS).$$f ; done	
+
+
+clean: 
+	rm -f *.o 
+
+prepare:
+	mkdir -p       $(DESTDIR)$(PREFIX)/include
+	cp bios_low.h       $(DESTDIR)$(PREFIX)/include
+

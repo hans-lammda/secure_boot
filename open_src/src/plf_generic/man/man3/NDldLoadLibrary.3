@@ -1,0 +1,23 @@
+.TH SecProv 3   "API Reference"
+.SH NAME
+NDldLoadLibrary
+.SH DESCRIPTION
+Loads a dynamic library (shared object) into the current process. The pathname can either be a fully qualified path or a relative path to the library to load.
+.SH SYNOPSIS
+.B #include <dynload.h>
+.sp
+.B HMODULE NDldLoadLibrary(pszLibraryPath);
+.SH PARAMETERS
+.TP
+.B const char * pszLibraryPath
+Pathname to the library to load.
+.SH RETURN VALUES
+.SH COPYRIGHT
+ \(co Oniteo 2007-2008
+.SH SEE ALSO
+.BR NDldUnloadLibrary(3)
+.BR NDldLoadSymbol(3)
+.BR NDldLoadFunc(3)
+.BR NDldGetError(3)
+.BR NDldGetExtension(3)
+.PP
