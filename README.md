@@ -4,9 +4,11 @@
 This project is related to the HASPOC project sponsored by Vinnova
 High Assurance Security Products On COTS platforms. [HASPOC Homepage](https://haspoc.sics.se)
 
-## News 
+## Relevant links 
 
 [Black Louts](https://www.theregister.com/2023/03/01/blacklotus_malware_eset/) malware can bypass Secure boot Mar 2023
+
+[RAUC] (https://rauc.readthedocs.io/en/latest/using.html) 
 
 ## Maintainer ##
 hans ( at ) lammda.se 
