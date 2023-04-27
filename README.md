@@ -8,7 +8,8 @@ High Assurance Security Products On COTS platforms. [HASPOC Homepage](https://ha
 
 [Black Louts](https://www.theregister.com/2023/03/01/blacklotus_malware_eset/) malware can bypass Secure boot Mar 2023
 
-[RAUC] (https://rauc.readthedocs.io/en/latest/using.html) 
+[RAUC](https://rauc.readthedocs.io/en/latest/using.html) 
+[RISCV](https://github.com/RISCV-MYTH-WORKSHOP/)
 
 ## Maintainer ##
 hans ( at ) lammda.se 
