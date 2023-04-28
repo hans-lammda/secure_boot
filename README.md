@@ -4,12 +4,33 @@
 This project is related to the HASPOC project sponsored by Vinnova
 High Assurance Security Products On COTS platforms. [HASPOC Homepage](https://haspoc.sics.se)
 
-## Relevant links 
+## Referenses
+I watch this area, maybe I pick up the work in the future. 
+### Overview of existing bootloaders
+* [Comparison](https://en.wikipedia.org/wiki/Comparison_of_bootloaders)
 
-[Black Louts](https://www.theregister.com/2023/03/01/blacklotus_malware_eset/) malware can bypass Secure boot Mar 2023
+### Security issues 
+* [Black Louts](https://www.theregister.com/2023/03/01/blacklotus_malware_eset/) malware can bypass Secure boot Mar 2023
+### Lifecycle management
+* [RAUC](https://rauc.readthedocs.io/en/latest/using.html)
+* [Axis](https://www.axis.com/developer-community/open-source)
+* [Axis-OS](https://www.axis.com/support/axis-os) 
+### Hardware and tools 
+* [RISCV](https://github.com/RISCV-MYTH-WORKSHOP/)
+* [Veripool](https://www.veripool.org/verilator/)
+* [Chipyard](https://chipyard.readthedocs.io/en/stable/index.html)
+### RUST
+*"Write once run everywhere"*
+[Rust](https://www.rust-lang.org/) and [WASM](https://webassembly.org/) seems to play well together. 
 
-[RAUC](https://rauc.readthedocs.io/en/latest/using.html) 
-[RISCV](https://github.com/RISCV-MYTH-WORKSHOP/)
+There is also some projects related to bootloaders. 
+* [rust-os](https://github.com/rust-osdev/bootloader) 
+* [rustBoot](https://github.com/nihalpasham/rustBoot) 
+* [Loadstore](https://www.reddit.com/r/rust/comments/ojccg2/announcing_loadstone_a_secure_baremetal_rust/) 
+Linux kernel 
+* [Kernel module](https://wusyong.github.io/posts/rust-kernel-module-01/)
+Microservices
+* [Rust example](https://medium.com/tenable-techblog/building-a-microservice-with-rust-23a4de6e5e14)
 
 ## Maintainer ##
 hans ( at ) lammda.se 
