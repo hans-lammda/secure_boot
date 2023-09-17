@@ -8,6 +8,7 @@ High Assurance Security Products On COTS platforms. [HASPOC Homepage](https://ha
 I watch this area, maybe I pick up the work in the future. 
 ### Overview of existing bootloaders
 * [Comparison](https://en.wikipedia.org/wiki/Comparison_of_bootloaders)
+* [Encryption](https://github.com/ANSSI-FR/SecAESSTM32) 
 
 ### Security issues 
 * [Black Louts](https://www.theregister.com/2023/03/01/blacklotus_malware_eset/) malware can bypass Secure boot Mar 2023
