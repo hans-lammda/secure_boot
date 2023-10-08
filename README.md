@@ -10,7 +10,9 @@ I watch this area, maybe I pick up the work in the future.
 * [Comparison](https://en.wikipedia.org/wiki/Comparison_of_bootloaders)
 ### Encryption 
 * [Encryption](https://github.com/ANSSI-FR/SecAESSTM32)
-* [Quantum Safe](https://openquantumsafe.org) 
+* [Quantum Safe](https://openquantumsafe.org)
+### Uboot 
+* [Update on uboot](https://www.youtube.com/watch?v=YlJBsVZJkDI)
 ### RISE 
 * [Assist](https://assist-project.github.io/events/) 
 
