@@ -2,7 +2,7 @@
 
 ## General ##
 This project is related to the HASPOC project sponsored by Vinnova
-High Assurance Security Products On COTS platforms. [HASPOC Homepage](https://haspoc.sics.se)
+High Assurance Security Products On COTS platforms. [HASPOC](https://www.ericsson.com/en/blog/2017/8/high-assurance-virtualization-for-armv8)
 
 ## Referenses
 I watch this area, maybe I pick up the work in the future. 
