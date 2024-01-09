@@ -28,7 +28,8 @@ I watch this area, maybe I pick up the work in the future.
 * [RISCV](https://github.com/RISCV-MYTH-WORKSHOP/)
 * [Veripool](https://www.veripool.org/verilator/)
 * [Chipyard](https://chipyard.readthedocs.io/en/stable/index.html)
-* [Write our own loader](https://dev.to/frosnerd/writing-my-own-boot-loader-3mld) 
+* [Write our own loader](https://dev.to/frosnerd/writing-my-own-boot-loader-3mld)
+* [Hardware without closed microcode](https://www.phoronix.com/).
 ### RUST
 *"Write once run everywhere"*
 [Rust](https://www.rust-lang.org/) and [WASM](https://webassembly.org/) seems to play well together. 
