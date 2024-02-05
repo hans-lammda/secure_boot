@@ -16,7 +16,9 @@ I watch this area, maybe I pick up the work in the future.
 ### Uboot 
 * [Update on uboot](https://www.youtube.com/watch?v=YlJBsVZJkDI)
 ### RISE 
-* [Assist](https://assist-project.github.io/events/) 
+* [Assist](https://assist-project.github.io/events/)
+### TPM 
+[TPM and Linux](https://stackoverflow.com/questions/59951735/using-tpm-under-embedded-linux-on-arm)
 
 ### Security issues 
 * [Black Louts](https://www.theregister.com/2023/03/01/blacklotus_malware_eset/) malware can bypass Secure boot Mar 2023
