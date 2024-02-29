@@ -33,7 +33,8 @@ I watch this area, maybe I pick up the work in the future.
 * [Chipyard](https://chipyard.readthedocs.io/en/stable/index.html)
 * [Write our own loader](https://dev.to/frosnerd/writing-my-own-boot-loader-3mld)
 * [Hardware without closed microcode](https://www.phoronix.com/).
-### RUST
+### Memory safe languages 
+#### RUST
 *"Write once run everywhere"*
 [Rust](https://www.rust-lang.org/) and [WASM](https://webassembly.org/) seems to play well together. 
 
@@ -45,6 +46,8 @@ Linux kernel
 * [Kernel module](https://wusyong.github.io/posts/rust-kernel-module-01/)
 Microservices
 * [Rust example](https://medium.com/tenable-techblog/building-a-microservice-with-rust-23a4de6e5e14)
+#### C and C++ 
+[White house about C and memory safety](https://www-infoworld-com.cdn.ampproject.org/c/s/www.infoworld.com/article/3713203/white-house-urges-developers-to-dump-c-and-c.amp.html)
 
 ## Maintainer ##
 hans ( at ) lammda.se 
