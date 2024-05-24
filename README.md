@@ -17,6 +17,8 @@ I watch this area, maybe I pick up the work in the future.
 * [Update on uboot](https://www.youtube.com/watch?v=YlJBsVZJkDI)
 ### RISE 
 * [Assist](https://assist-project.github.io/events/)
+### Root of trust 
+* [OpenTitan](https://opentitan.org/)
 ### TPM 
 [TPM and Linux](https://stackoverflow.com/questions/59951735/using-tpm-under-embedded-linux-on-arm)
 [TPM and Linaro](https://static.linaro.org/connect/bkk19/presentations/bkk19-215.pdf) 
