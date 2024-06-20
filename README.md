@@ -20,6 +20,8 @@ High Assurance Security Products On COTS platforms.
 I watch this area, maybe I pick up the work in the future. 
 ### Overview of existing bootloaders
 * [Comparison](https://en.wikipedia.org/wiki/Comparison_of_bootloaders)
+### Attacks on Trutzone
+[TEE](https://github.com/enovella/TEE-reversing)
 ### Business impact
 * [Apple](https://9to5mac.com/2023/11/18/idc-report-highlights-how-security-has-become-apples-trojan-horse-in-the-enterprise/)
 ### Encryption 
