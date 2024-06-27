@@ -27,6 +27,9 @@ I watch this area, maybe I pick up the work in the future.
 ### Encryption 
 * [Encryption](https://github.com/ANSSI-FR/SecAESSTM32)
 * [Quantum Safe](https://openquantumsafe.org)
+* [Hashboot](https://eprint.iacr.org/2022/1198.pdf)
+* [BL1_2](https://docs.nordicsemi.com/bundle/ncs-2.3.0/page/tfm/technical_references/design_docs/index.html)
+* [Wolfiboot](https://www.wolfssl.com/wolfboot-secure-boot-and-more-unique-features-to-assist-and-optimize-firmware-updates/)
 ### Uboot 
 * [Update on uboot](https://www.youtube.com/watch?v=YlJBsVZJkDI)
 ### RISE 
