@@ -18,6 +18,8 @@ High Assurance Security Products On COTS platforms.
 
 ## Referenses
 I watch this area, maybe I pick up the work in the future. 
+### ARM Trusted Firmware 
+[BL1](https://tf-m-user-guide.trustedfirmware.org/design_docs/booting/bl1.html)
 ### Overview of existing bootloaders
 * [Comparison](https://en.wikipedia.org/wiki/Comparison_of_bootloaders)
 ### Attacks on Trustzone
