@@ -32,6 +32,8 @@ I watch this area, maybe I pick up the work in the future.
 * [Hashboot](https://eprint.iacr.org/2022/1198.pdf)
 * [BL1_2](https://docs.nordicsemi.com/bundle/ncs-2.3.0/page/tfm/technical_references/design_docs/index.html)
 * [Wolfiboot](https://www.wolfssl.com/wolfboot-secure-boot-and-more-unique-features-to-assist-and-optimize-firmware-updates/)
+### Post Quantum 
+* [Samnet panel discussion](https://play.dfri.se/w/p/dDp3gZnMNmtXMbtHTrQJVQ?playlistPosition=1)
 ### Uboot 
 * [Update on uboot](https://www.youtube.com/watch?v=YlJBsVZJkDI)
 ### RISE 
@@ -67,11 +69,10 @@ I watch this area, maybe I pick up the work in the future.
 There is also some projects related to bootloaders. 
 * [rust-os](https://github.com/rust-osdev/bootloader) 
 * [rustBoot](https://github.com/nihalpasham/rustBoot) 
-* [Loadstore](https://www.reddit.com/r/rust/comments/ojccg2/announcing_loadstone_a_secure_baremetal_rust/) 
-Linux kernel 
+* [Loadstore](https://www.reddit.com/r/rust/comments/ojccg2/announcing_loadstone_a_secure_baremetal_rust/)
+* [Verifpal-rust](https://symbolic.software/blog/2026-02-23-verifpal-rust/)  
 * [Kernel module](https://wusyong.github.io/posts/rust-kernel-module-01/)
-Microservices
-* [Rust example](https://medium.com/tenable-techblog/building-a-microservice-with-rust-23a4de6e5e14)
+* [Microservices](https://medium.com/tenable-techblog/building-a-microservice-with-rust-23a4de6e5e14)
 #### C and C++ 
 [White house about C and memory safety](https://www-infoworld-com.cdn.ampproject.org/c/s/www.infoworld.com/article/3713203/white-house-urges-developers-to-dump-c-and-c.amp.html)
 
