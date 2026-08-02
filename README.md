@@ -61,6 +61,7 @@ I watch this area, maybe I pick up the work in the future.
 * [Chipyard](https://chipyard.readthedocs.io/en/stable/index.html)
 * [Write our own loader](https://dev.to/frosnerd/writing-my-own-boot-loader-3mld)
 * [Hardware without closed microcode](https://www.phoronix.com/).
+* [Ventoy USB boot creation tool](https://www.ventoy.net/en/index.html).
 ### Memory safe languages 
 #### RUST
 *"Write once run everywhere"*
